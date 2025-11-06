@@ -78,6 +78,870 @@ h1{text-align:center;color:#ff9900;margin-bottom:15px;font-size:2.0rem;text-shad
 /*   - `correct` can be a **number** (single) or an **array** (multi)      */
 /*   - Options are plain text – no A) B) prefixes                         */
 const questions = [
+    {
+    question: "A company wants to reduce latency for global users accessing a web application hosted in one AWS Region. What’s the best solution?",
+    options: ["Use Amazon CloudFront with edge locations", "Increase EC2 instance size", "Move data to S3 Glacier", "Use AWS Backup cross-region replication"],
+    correct: 0,
+    explanation: "Amazon CloudFront caches content closer to global users using edge locations, improving latency and performance."
+},
+{
+    question: "You must ensure an application automatically scales horizontally during sudden traffic spikes. Which AWS component combination achieves this?",
+    options: ["Auto Scaling Group with Elastic Load Balancer", "CloudFormation and CloudTrail", "Elastic Beanstalk and AWS Backup", "EC2 Spot Fleet only"],
+    correct: 0,
+    explanation: "Auto Scaling Groups with Load Balancers maintain performance by adjusting EC2 capacity based on demand."
+},
+{
+    question: "A healthcare company needs to store sensitive patient records securely and comply with HIPAA. Which AWS feature is critical?",
+    options: ["AWS Shield Advanced", "Encryption with AWS KMS and IAM access control", "S3 Transfer Acceleration", "AWS CodeDeploy"],
+    correct: 1,
+    explanation: "Encryption and IAM-based access control, managed via AWS KMS, ensure compliance with HIPAA and data security best practices."
+},
+{
+    question: "You need to migrate hundreds of terabytes from on-premises to S3 and synchronize updates continuously. What’s the most efficient approach?",
+    options: ["AWS DataSync", "AWS Snowball", "S3 Transfer Acceleration", "AWS Storage Gateway Tape"],
+    correct: 0,
+    explanation: "AWS DataSync automates and accelerates online data transfers with incremental updates between on-premises and AWS."
+},
+{
+    question: "Your development team needs an isolated environment for experiments without risking production. What’s the recommended setup?",
+    options: ["Separate IAM roles in the same account", "Use a separate AWS account in the same Organization", "Use one shared VPC for all teams", "Create subnets in the same VPC"],
+    correct: 1,
+    explanation: "Separate AWS accounts ensure isolation and governance while remaining centrally managed through AWS Organizations."
+},
+{
+    question: "Which service helps visualize, analyze, and optimize AWS cost and usage data?",
+    options: ["AWS Cost Explorer", "AWS Budgets", "AWS Trusted Advisor", "AWS Cost Anomaly Detection"],
+    correct: 0,
+    explanation: "AWS Cost Explorer provides interactive reports for analyzing and optimizing AWS spending trends."
+},
+{
+    question: "A company needs automatic DNS failover if its primary web server becomes unavailable. Which AWS feature enables this?",
+    options: ["Amazon Route 53 health checks with failover routing", "Elastic Load Balancing alone", "AWS Backup replication", "CloudFormation drift detection"],
+    correct: 0,
+    explanation: "Route 53 health checks combined with failover routing automatically redirect traffic when endpoints fail."
+},
+{
+    question: "You’re tasked with designing a hybrid cloud setup. Which service simplifies connecting multiple on-premises sites to AWS securely?",
+    options: ["AWS Transit Gateway", "AWS Global Accelerator", "Amazon CloudFront", "AWS DataSync"],
+    correct: 0,
+    explanation: "AWS Transit Gateway consolidates and manages connectivity between VPCs and on-premises networks efficiently."
+},
+{
+    question: "Your organization wants to deploy multiple applications quickly with consistent security baselines. Which AWS service provides pre-approved templates?",
+    options: ["AWS Service Catalog", "AWS Marketplace", "AWS CodeBuild", "AWS Control Tower"],
+    correct: 0,
+    explanation: "AWS Service Catalog lets administrators create and distribute pre-approved product templates with enforced compliance."
+},
+{
+    question: "An e-commerce platform experiences intermittent API performance degradation. Which AWS service helps identify the root cause?",
+    options: ["AWS X-Ray", "Amazon CloudWatch Logs", "AWS CloudTrail", "AWS Config"],
+    correct: 0,
+    explanation: "AWS X-Ray traces requests through distributed systems to pinpoint latency and bottlenecks in APIs and applications."
+},
+    {
+    question: "Your company needs to replicate a database across AWS Regions for disaster recovery. Which service feature provides automatic, cross-Region replication for relational databases?",
+    options: ["Amazon RDS Read Replicas", "AWS Database Migration Service", "Amazon Aurora Global Database", "Amazon DynamoDB Streams"],
+    correct: 2,
+    explanation: "Aurora Global Database allows low-latency reads across Regions and quick recovery from regional failures, ideal for disaster recovery setups."
+},
+{
+    question: "A startup wants to process IoT sensor data in near real-time and store summaries in S3. Which AWS service best handles the streaming ingestion?",
+    options: ["Amazon SQS", "Amazon Kinesis Data Streams", "AWS Glue", "AWS Lambda"],
+    correct: 1,
+    explanation: "Amazon Kinesis Data Streams captures and processes real-time streaming data for analytics or downstream processing."
+},
+{
+    question: "You must ensure EC2 instances automatically recover if their underlying hardware fails. What feature should be enabled?",
+    options: ["Auto Scaling Group", "EC2 Auto Recovery", "Elastic Load Balancing", "AWS Backup"],
+    correct: 1,
+    explanation: "EC2 Auto Recovery automatically recovers instances from hardware or software failures using the same instance metadata and IP."
+},
+{
+    question: "A team needs to automate infrastructure deployment repeatedly in multiple AWS accounts. What is the best solution?",
+    options: ["AWS CloudFormation StackSets", "AWS Config Rules", "AWS Service Catalog", "AWS Systems Manager Run Command"],
+    correct: 0,
+    explanation: "CloudFormation StackSets allow consistent deployment of infrastructure templates across multiple accounts and Regions."
+},
+{
+    question: "Your Lambda function needs access to an RDS database securely. What’s the best practice?",
+    options: ["Store credentials in Lambda environment variables", "Embed credentials in code", "Use AWS Secrets Manager with IAM permissions", "Use an S3 bucket to store credentials"],
+    correct: 2,
+    explanation: "AWS Secrets Manager securely stores and rotates credentials, which Lambda can retrieve using IAM policies."
+},
+{
+    question: "An application stores large media files that rarely change. To reduce cost, what S3 storage class is most suitable?",
+    options: ["S3 Standard", "S3 Intelligent-Tiering", "S3 Glacier", "S3 Standard-IA"],
+    correct: 3,
+    explanation: "S3 Standard-IA offers lower storage cost for infrequently accessed objects with quick retrieval when needed."
+},
+{
+    question: "You need to ensure an EC2 instance always runs in two Availability Zones for high availability. What should you do?",
+    options: ["Launch two EC2 instances in the same subnet", "Use an Auto Scaling Group spanning multiple AZs", "Use one large instance instead", "Enable EC2 Enhanced Networking"],
+    correct: 1,
+    explanation: "Auto Scaling Groups across multiple AZs ensure replacement instances launch automatically if one AZ fails."
+},
+{
+    question: "Which AWS service provides a central place to monitor billing, compliance, and resource usage across multiple accounts?",
+    options: ["AWS Control Tower", "AWS Organizations", "AWS CloudTrail", "AWS Cost Explorer"],
+    correct: 0,
+    explanation: "AWS Control Tower gives governance, guardrails, and visibility across multi-account environments."
+},
+{
+    question: "A financial app must retain transaction logs for 7 years but rarely access them. What’s the most cost-efficient storage option?",
+    options: ["S3 Standard", "S3 Glacier Deep Archive", "EFS Standard", "Amazon RDS storage"],
+    correct: 1,
+    explanation: "S3 Glacier Deep Archive offers the lowest-cost storage for long-term data retention with infrequent access."
+},
+{
+    question: "Which service can automate patch management across EC2 instances?",
+    options: ["AWS OpsWorks", "AWS Systems Manager Patch Manager", "AWS Config", "AWS CodePipeline"],
+    correct: 1,
+    explanation: "Patch Manager automates patching for EC2 instances and on-premises servers at scale."
+},
+{
+    question: "Your team wants to reduce EC2 costs by automatically stopping instances outside business hours. Which AWS feature helps?",
+    options: ["CloudWatch Alarms", "Systems Manager Automation", "Lambda Scheduled Events", "All of the above"],
+    correct: 3,
+    explanation: "All these can combine to schedule instance stop/start actions for cost savings."
+},
+{
+    question: "A developer must deploy code automatically whenever changes are pushed to GitHub. What service handles this pipeline?",
+    options: ["AWS CodeBuild", "AWS CodePipeline", "AWS Cloud9", "AWS CodeDeploy"],
+    correct: 1,
+    explanation: "CodePipeline automates CI/CD workflows integrating with GitHub and AWS deployment services."
+},
+{
+    question: "You must ensure no user can delete critical S3 objects, even accidentally. What should you enable?",
+    options: ["S3 Versioning only", "S3 MFA Delete", "S3 Object Lock", "S3 Access Analyzer"],
+    correct: 2,
+    explanation: "S3 Object Lock prevents deletion or overwriting of data, enforcing retention policies."
+},
+{
+    question: "A company needs private connectivity between on-premises data center and AWS. What’s the recommended solution?",
+    options: ["AWS VPN", "AWS Direct Connect", "AWS Global Accelerator", "AWS Transit Gateway"],
+    correct: 1,
+    explanation: "AWS Direct Connect provides dedicated, low-latency, high-bandwidth private connectivity to AWS."
+},
+{
+    question: "Which service automatically scales containers across multiple EC2 instances?",
+    options: ["Amazon EKS", "Amazon ECS with Fargate", "AWS Batch", "AWS Lambda"],
+    correct: 1,
+    explanation: "ECS with Fargate abstracts server management and automatically scales containers as needed."
+},
+{
+    question: "You want to enforce least privilege across AWS accounts. What’s the best approach?",
+    options: ["Use IAM groups liberally", "Grant full access to admins only", "Use AWS Organizations Service Control Policies", "Enable CloudTrail"],
+    correct: 2,
+    explanation: "Service Control Policies apply permission boundaries across all accounts in an organization."
+},
+{
+    question: "Your EC2 instances need dynamic configuration at startup. Which service is best suited?",
+    options: ["AWS Config", "AWS Systems Manager Parameter Store", "AWS Secrets Manager", "AWS CloudTrail"],
+    correct: 1,
+    explanation: "Parameter Store provides configuration and secret values accessible by EC2 at runtime."
+},
+{
+    question: "A company wants to migrate large on-premises data to AWS quickly using physical storage devices. Which service fits best?",
+    options: ["AWS Snowball", "AWS DataSync", "AWS Storage Gateway", "Amazon S3 Transfer Acceleration"],
+    correct: 0,
+    explanation: "AWS Snowball provides physical appliances for large-scale data transfer into AWS."
+},
+{
+    question: "You want to monitor API calls across AWS services for auditing. Which service is required?",
+    options: ["AWS CloudTrail", "AWS Config", "Amazon CloudWatch", "AWS Trusted Advisor"],
+    correct: 0,
+    explanation: "CloudTrail records all API activity, supporting compliance and auditing needs."
+},
+{
+    question: "You want to enforce encryption of all EBS volumes automatically. How can you achieve that?",
+    options: ["Manually encrypt each volume", "Enable EBS encryption by default", "Use AWS KMS manually for each key", "Rely on instance metadata"],
+    correct: 1,
+    explanation: "EBS encryption by default ensures all new volumes use encryption automatically."
+},
+{
+    question: "A mobile app needs to authenticate users using social media logins. Which AWS service supports this easily?",
+    options: ["Amazon Cognito", "AWS IAM", "AWS Directory Service", "AWS SSO"],
+    correct: 0,
+    explanation: "Amazon Cognito integrates with social identity providers for secure user authentication."
+},
+{
+    question: "Which AWS service can automatically create alarms for cost thresholds?",
+    options: ["AWS Budgets", "Cost Explorer", "AWS Cost Anomaly Detection", "CloudWatch"],
+    correct: 0,
+    explanation: "AWS Budgets lets you set alerts when actual or forecasted costs exceed predefined thresholds."
+},
+{
+    question: "A customer wants to store structured and semi-structured data and run SQL queries on it directly. Which service fits best?",
+    options: ["Amazon Athena", "AWS Glue", "Amazon Redshift", "Amazon RDS"],
+    correct: 0,
+    explanation: "Athena queries data directly in S3 using SQL without loading it into a database."
+},
+{
+    question: "You want to detect unusual spikes in account activity that could indicate a breach. What service should you enable?",
+    options: ["AWS WAF", "AWS Shield", "Amazon GuardDuty", "AWS CloudTrail"],
+    correct: 2,
+    explanation: "GuardDuty continuously monitors for malicious activity or unauthorized behavior using threat intelligence."
+},
+{
+    question: "Which AWS tool provides recommendations for cost and performance optimization?",
+    options: ["AWS Trusted Advisor", "AWS Config", "AWS Budgets", "AWS Cost Explorer"],
+    correct: 0,
+    explanation: "Trusted Advisor scans for best practices across cost, security, performance, and fault tolerance."
+},
+{
+    question: "A developer wants to test application changes safely before deployment. Which AWS concept allows isolated test environments?",
+    options: ["Multiple Regions", "Separate VPCs", "Multiple AWS Accounts", "IAM Roles"],
+    correct: 2,
+    explanation: "Separate accounts isolate environments for testing, reducing risk of impacting production."
+},
+{
+    question: "Your organization needs central logging for all AWS accounts. Which service integrates logs from multiple accounts into one location?",
+    options: ["Amazon CloudWatch Logs", "AWS CloudTrail Lake", "AWS Audit Manager", "AWS Config"],
+    correct: 1,
+    explanation: "CloudTrail Lake allows centralized log storage and analysis across multiple accounts."
+},
+{
+    question: "To maintain consistent access control across multiple S3 buckets, which feature helps most?",
+    options: ["IAM Roles", "S3 ACLs", "S3 Bucket Policies", "S3 Access Points"],
+    correct: 3,
+    explanation: "S3 Access Points simplify managing and scaling access policies across many buckets."
+},
+{
+    question: "Your web app needs a managed in-memory cache to improve performance. Which AWS service should you use?",
+    options: ["Amazon ElastiCache", "AWS Lambda", "Amazon RDS", "AWS Glue"],
+    correct: 0,
+    explanation: "ElastiCache provides managed Redis and Memcached clusters to cache frequently accessed data."
+},
+    {
+    question: "A company’s EC2 Auto Scaling group launches instances but they fail health checks repeatedly. What’s the most likely cause?",
+    options: ["Security group blocks inbound traffic", "Launch configuration uses the wrong AMI or user data", "IAM role lacks S3 permissions", "Load balancer health check timeout too short"],
+    correct: 1,
+    explanation: "If instances never pass health checks, the launch configuration or startup script is often misconfigured, preventing proper boot or service startup."
+},
+{
+    question: "Your finance department complains about unpredictable AWS bills. Which tool best helps identify which service or account caused sudden cost increases?",
+    options: ["AWS Budgets", "AWS Cost Explorer with daily granularity", "Trusted Advisor", "CloudTrail"],
+    correct: 1,
+    explanation: "Cost Explorer with daily breakdown and service filters reveals exactly which services or accounts increased spend."
+},
+{
+    question: "A global retail app experiences slow response times from users in Asia while hosted only in us-east-1. What’s the best way to fix this?",
+    options: ["Add EC2 instances in a second region and use Route 53 latency routing", "Use Auto Scaling in the same region", "Enable CloudWatch metrics", "Increase EC2 instance size"],
+    correct: 0,
+    explanation: "Latency-based routing across multiple regions routes users to the nearest healthy endpoint for faster responses."
+},
+{
+    question: "Your development team uses temporary EC2 test environments. You need to ensure they’re terminated automatically after 24 hours. How can this be automated?",
+    options: ["Use EC2 Auto Scaling", "Attach CloudWatch alarms triggering Lambda to stop instances", "Enable EC2 termination protection", "Use AWS Budgets with alerts"],
+    correct: 1,
+    explanation: "CloudWatch with Lambda automation can monitor instance age and terminate or stop old instances automatically."
+},
+{
+    question: "You need to securely share reports stored in S3 with a partner organization for a limited time. What’s the simplest secure method?",
+    options: ["Use a public S3 bucket", "Generate a pre-signed URL with expiration", "Create an IAM user for them", "Copy data to Glacier and share ARN"],
+    correct: 1,
+    explanation: "Pre-signed URLs provide time-limited, secure access to specific S3 objects without exposing the bucket publicly."
+},
+{
+    question: "A startup needs an easy way to deploy web apps without managing infrastructure. What AWS service fits best?",
+    options: ["EC2 Auto Scaling", "AWS Elastic Beanstalk", "ECS Fargate", "CloudFormation"],
+    correct: 1,
+    explanation: "Elastic Beanstalk automates provisioning, scaling, and deployment for web apps with minimal operational overhead."
+},
+{
+    question: "Your company has multiple accounts and wants centralized access management. Which service should they use?",
+    options: ["AWS Identity Center (formerly SSO)", "IAM Roles only", "AWS Organizations Consolidated Billing", "Cognito"],
+    correct: 0,
+    explanation: "AWS Identity Center allows centralized identity and access management across multiple AWS accounts and applications."
+},
+{
+    question: "You notice frequent 5xx errors in your application logs. Which AWS service helps trace and debug distributed requests?",
+    options: ["CloudWatch Logs Insights", "AWS X-Ray", "AWS Inspector", "CloudTrail"],
+    correct: 1,
+    explanation: "AWS X-Ray provides distributed tracing to pinpoint performance bottlenecks and error sources across microservices."
+},
+{
+    question: "A developer wants to run containerized workloads without managing servers. Which AWS service fits best?",
+    options: ["ECS on EC2", "EKS", "AWS Fargate", "Elastic Beanstalk"],
+    correct: 2,
+    explanation: "AWS Fargate runs containers serverlessly, eliminating the need to manage or provision EC2 hosts."
+},
+{
+    question: "Your app sends millions of messages per day between microservices. Which AWS service provides reliable message delivery and decoupling?",
+    options: ["AWS SNS", "AWS SQS", "AWS Step Functions", "Amazon MQ"],
+    correct: 1,
+    explanation: "Amazon SQS provides reliable, scalable message queuing for decoupled microservices communication."
+},
+{
+    question: "Your Lambda function occasionally exceeds its timeout. What’s the first step to resolve this?",
+    options: ["Increase allocated memory", "Increase function timeout", "Enable VPC access", "Add retries in code"],
+    correct: 1,
+    explanation: "First ensure the function timeout setting accommodates expected execution time before deeper investigation."
+},
+{
+    question: "You need to detect unused IAM roles and credentials. Which AWS feature helps most?",
+    options: ["AWS Config", "IAM Access Analyzer", "Credential report and last-used data", "CloudTrail Insights"],
+    correct: 2,
+    explanation: "IAM credential reports show when access keys, users, and roles were last used, helping identify stale credentials."
+},
+{
+    question: "A data analytics workload runs nightly and must finish before morning. Which pricing model offers best value?",
+    options: ["Reserved Instances", "On-Demand Instances", "Spot Instances", "Dedicated Hosts"],
+    correct: 2,
+    explanation: "Spot Instances provide large cost savings for interruptible workloads like nightly batch jobs."
+},
+{
+    question: "You suspect a DDoS attack on your web application. What AWS service provides immediate protection?",
+    options: ["AWS GuardDuty", "AWS WAF + AWS Shield", "CloudTrail", "Trusted Advisor"],
+    correct: 1,
+    explanation: "AWS WAF with AWS Shield protects applications from DDoS and common web exploits in real time."
+},
+{
+    question: "A company needs to run a legacy application that requires static IP addresses. Which AWS feature helps?",
+    options: ["Elastic IP addresses", "Elastic Load Balancer", "Route 53 A-records", "VPC Endpoints"],
+    correct: 0,
+    explanation: "Elastic IPs provide fixed public IP addresses that remain the same even if instance changes."
+},
+{
+    question: "Your database performance drops as traffic increases. Which service helps automatically add read capacity?",
+    options: ["Amazon Aurora Read Replicas", "Amazon DynamoDB Accelerator", "Amazon ElastiCache", "Amazon Neptune"],
+    correct: 0,
+    explanation: "Aurora Read Replicas can automatically add read capacity and balance load under heavy read traffic."
+},
+{
+    question: "A team wants to receive alerts when a specific API call pattern appears suspicious. What AWS service enables this?",
+    options: ["CloudTrail with EventBridge rules", "CloudWatch Metrics", "Trusted Advisor", "AWS Config"],
+    correct: 0,
+    explanation: "CloudTrail logs API calls and can trigger EventBridge rules for alerts on specific activity patterns."
+},
+{
+    question: "Your organization must meet strict compliance requirements. Which AWS service continuously checks for configuration compliance?",
+    options: ["AWS Config Rules", "AWS Inspector", "CloudTrail", "GuardDuty"],
+    correct: 0,
+    explanation: "AWS Config Rules evaluate resource configurations against compliance policies continuously."
+},
+{
+    question: "An app stores large unstructured files needing quick search by metadata. What AWS service fits best?",
+    options: ["Amazon S3 with object tags", "DynamoDB", "Amazon EFS", "Amazon Redshift"],
+    correct: 0,
+    explanation: "S3 object tagging allows fast metadata-based searches using AWS APIs or S3 Inventory."
+},
+{
+    question: "You want to replicate data between regions for disaster recovery. What’s the simplest way for S3 data?",
+    options: ["Manual copy using CLI", "Enable Cross-Region Replication (CRR)", "Use DataSync", "Export data to Glacier"],
+    correct: 1,
+    explanation: "S3 Cross-Region Replication automatically copies objects across AWS regions for redundancy and DR."
+},
+{
+    question: "A company uses EC2 instances for web servers and wants to ensure SSL/TLS certificates renew automatically. Which AWS service simplifies this?",
+    options: ["AWS Certificate Manager (ACM)", "Route 53", "IAM Access Manager", "CloudHSM"],
+    correct: 0,
+    explanation: "ACM provisions, manages, and renews SSL/TLS certificates automatically for AWS resources."
+},
+{
+    question: "An S3 bucket is growing rapidly due to duplicated data uploads. How can you automatically prevent duplicates?",
+    options: ["Enable versioning", "Enable S3 Object Lock", "Use S3 Object Lambda or deduplication via checksum before upload", "Enable Transfer Acceleration"],
+    correct: 2,
+    explanation: "Checksum validation or S3 Object Lambda can prevent redundant uploads by verifying object uniqueness."
+},
+{
+    question: "Your web app needs to reduce load times by caching database results. What AWS service should you use?",
+    options: ["Amazon ElastiCache", "DynamoDB", "CloudFront", "RDS Read Replicas"],
+    correct: 0,
+    explanation: "ElastiCache stores frequently accessed data in memory, reducing database read latency."
+},
+{
+    question: "A team wants to automate infrastructure deployment consistently across environments. What AWS tool helps most?",
+    options: ["AWS CloudFormation", "AWS CLI", "Elastic Beanstalk", "OpsWorks"],
+    correct: 0,
+    explanation: "CloudFormation enables infrastructure as code, ensuring consistent, repeatable deployments."
+},
+{
+    question: "You need a data warehouse that supports complex SQL queries on petabytes of structured data. Which AWS service fits?",
+    options: ["Amazon Redshift", "Amazon Athena", "Amazon RDS", "DynamoDB"],
+    correct: 0,
+    explanation: "Amazon Redshift is a fully managed data warehouse optimized for large-scale analytical queries."
+},
+{
+    question: "Your organization wants a secure, private connection to AWS from its on-premises network. What service should be used?",
+    options: ["AWS Direct Connect", "VPN Gateway", "Transit Gateway", "VPC Peering"],
+    correct: 0,
+    explanation: "AWS Direct Connect provides dedicated private network connections for reliable and secure connectivity."
+},
+{
+    question: "You must notify admins instantly when an EC2 instance enters the 'stopped' state. What AWS service should trigger the alert?",
+    options: ["AWS Config Rules", "CloudWatch EventBridge", "CloudTrail", "Trusted Advisor"],
+    correct: 1,
+    explanation: "EventBridge (formerly CloudWatch Events) can trigger notifications or Lambda functions based on EC2 state changes."
+},
+{
+    question: "A customer-facing API must handle traffic spikes smoothly without downtime. Which AWS design principle helps most?",
+    options: ["Vertical scaling", "Loose coupling and elasticity", "Manual resource allocation", "Static provisioning"],
+    correct: 1,
+    explanation: "Loose coupling and elasticity allow automatic scaling and distributed architecture for resilience under fluctuating load."
+},
+{
+    question: "You need to archive compliance data that must remain unchangeable for 10 years. What AWS feature ensures immutability?",
+    options: ["S3 Object Lock with Compliance mode", "Versioning only", "EBS Snapshots", "Glacier Flexible Retrieval"],
+    correct: 0,
+    explanation: "S3 Object Lock in Compliance mode prevents any modification or deletion of archived data within a set retention period."
+},
+{
+    question: "Your team wants to run SQL queries directly on data stored in S3 without moving it. Which service allows this?",
+    options: ["Amazon Redshift Spectrum", "Amazon Athena", "Amazon QuickSight", "AWS Glue"],
+    correct: 1,
+    explanation: "Athena enables interactive SQL queries on S3 data without loading it into a database."
+},
+{
+    question: "A company hosts an internal tool that must only be accessible within its corporate VPN. What AWS setup achieves this?",
+    options: ["Deploy EC2 in a private subnet with VPN connection", "Use public subnet with security group restrictions", "Enable CloudFront", "Use S3 static hosting"],
+    correct: 0,
+    explanation: "Hosting EC2 in a private subnet accessible only via VPN ensures internal-only access."
+},
+{
+    question: "Your security team wants to automatically rotate RDS database credentials. Which AWS service enables this?",
+    options: ["AWS Secrets Manager", "AWS Systems Manager Parameter Store", "IAM Roles", "AWS KMS"],
+    correct: 0,
+    explanation: "AWS Secrets Manager automates credential rotation and securely stores connection information."
+},
+{
+    question: "A user mistakenly deleted an important DynamoDB table. How can you recover it?",
+    options: ["Restore from on-demand backup", "Use DynamoDB TTL", "Recreate the table manually", "Enable DAX caching"],
+    correct: 0,
+    explanation: "DynamoDB on-demand backups enable full table restoration to a previous state."
+},
+{
+    question: "Your EC2 instances need access to S3 but must not use public internet. What’s the secure method?",
+    options: ["Use NAT Gateway", "Use VPC Gateway Endpoint for S3", "Use public S3 URL", "Enable IAM access keys in instance"],
+    correct: 1,
+    explanation: "VPC Gateway Endpoints provide private connectivity to S3 without traversing the public internet."
+},
+{
+    question: "Your startup wants to predict customer churn using stored historical data. What AWS service is designed for this?",
+    options: ["Amazon SageMaker", "AWS Glue", "Amazon Forecast", "QuickSight"],
+    correct: 0,
+    explanation: "SageMaker enables machine learning model training and deployment for predictive analytics like churn prediction."
+},
+{
+    question: "You want to give your support team temporary console access for one day. What’s the best approach?",
+    options: ["Create IAM user and delete later", "Use IAM role with temporary session via AWS STS", "Share root credentials", "Use MFA only"],
+    correct: 1,
+    explanation: "STS allows granting temporary credentials for limited-duration console access without creating permanent users."
+},
+{
+    question: "A security audit requires detailed history of all console logins. Where can this be found?",
+    options: ["CloudTrail management events", "CloudWatch Logs", "Config snapshots", "Trusted Advisor report"],
+    correct: 0,
+    explanation: "CloudTrail records all management events, including AWS Management Console sign-ins and API activity."
+},
+{
+    question: "Your architecture must handle millions of requests per minute automatically. Which AWS design best meets this?",
+    options: ["Serverless architecture with Lambda and API Gateway", "Single EC2 instance with Auto Scaling", "Containerized app with manual scaling", "ECS with fixed task count"],
+    correct: 0,
+    explanation: "Lambda and API Gateway scale automatically to handle very high request volumes without manual provisioning."
+},
+{
+    question: "An app stores sensitive data and must encrypt it at rest and in transit. What’s required?",
+    options: ["Use AWS KMS for encryption and HTTPS endpoints", "Use CloudFront only", "Use IAM roles", "Enable versioning"],
+    correct: 0,
+    explanation: "KMS provides encryption at rest while HTTPS ensures data is encrypted during transit."
+},
+{
+    question: "You’re designing a solution that needs both queueing and pub/sub messaging patterns. Which combo fits best?",
+    options: ["SQS + SNS integration", "S3 + Lambda", "DynamoDB Streams", "EventBridge only"],
+    correct: 0,
+    explanation: "SNS publishes messages to multiple SQS queues, combining pub/sub and queueing architectures effectively."
+},
+{
+    question: "A startup runs its web app entirely on a single EC2 instance with an attached EBS volume. During traffic surges, the website becomes unavailable. What’s the best immediate solution for high availability?",
+    options: ["Increase EC2 instance type size", "Add another EC2 instance in a different AZ with an Elastic Load Balancer", "Use an EFS volume to share data between instances", "Switch to AWS Lambda for all workloads"],
+    correct: 1,
+    explanation: "Placing EC2 instances behind a load balancer across multiple Availability Zones ensures fault tolerance and scalability during traffic spikes."
+},
+{
+    question: "A company stores logs on Amazon S3. Compliance requires these logs be retained for 7 years but rarely accessed. How can you reduce storage costs?",
+    options: ["Use S3 Standard storage class", "Transition data to S3 Glacier Deep Archive using lifecycle policies", "Use EBS volumes for logs", "Replicate S3 buckets across all regions"],
+    correct: 1,
+    explanation: "S3 Glacier Deep Archive provides the lowest-cost option for long-term data retention with lifecycle automation."
+},
+{
+    question: "Your team deploys an application that needs to automatically recover from EC2 instance failure. What AWS feature provides this without manual intervention?",
+    options: ["CloudFormation", "EC2 Auto Recovery", "Elastic Beanstalk", "CloudWatch Logs"],
+    correct: 1,
+    explanation: "EC2 Auto Recovery automatically recovers instances when underlying hardware fails, ensuring high availability."
+},
+{
+    question: "A developer runs batch jobs on EC2 that are fault-tolerant and can restart without issue. How can they reduce compute costs?",
+    options: ["Use On-Demand Instances", "Use Reserved Instances", "Use Spot Instances", "Use Dedicated Hosts"],
+    correct: 2,
+    explanation: "Spot Instances are ideal for fault-tolerant workloads that can handle interruptions, offering up to 90% cost savings."
+},
+{
+    question: "Your finance team wants a monthly cost breakdown by project. Each AWS resource belongs to a specific project. How can you achieve this easily?",
+    options: ["Use AWS Budgets", "Use Cost Explorer with resource tags", "Create separate AWS accounts per project", "Enable consolidated billing"],
+    correct: 1,
+    explanation: "Tagging resources and analyzing them in Cost Explorer allows filtering and grouping of costs by project."
+},
+{
+    question: "You need to store static website content (HTML, CSS, JS) globally with low latency. What’s the best architecture?",
+    options: ["Host content on EC2", "Use Amazon S3 with CloudFront CDN", "Store files on EBS volumes", "Use AWS Lambda@Edge"],
+    correct: 1,
+    explanation: "S3 with CloudFront distributes content from edge locations, improving global access speed and reducing latency."
+},
+{
+    question: "A company runs an RDS MySQL database in a single AZ. After a power outage, their application went offline. What’s the most effective fix?",
+    options: ["Enable Multi-AZ deployment for RDS", "Switch to DynamoDB", "Create manual daily backups", "Use S3 replication"],
+    correct: 0,
+    explanation: "RDS Multi-AZ ensures automated failover to a standby database in another Availability Zone for high availability."
+},
+{
+    question: "Your application stores user uploads on EC2 instance storage. Files are lost when the instance is stopped. What’s the best fix?",
+    options: ["Store uploads in EBS volumes", "Store uploads in Amazon S3", "Create snapshots daily", "Use instance store volumes for durability"],
+    correct: 1,
+    explanation: "S3 provides durable, persistent object storage independent of EC2 instance lifecycle."
+},
+{
+    question: "A company receives unpredictable traffic surges during product launches. Which service combination ensures scalability and cost-efficiency?",
+    options: ["EC2 Auto Scaling with On-Demand instances", "Auto Scaling with a mix of On-Demand and Spot instances", "Single EC2 instance with higher CPU", "Lambda with Provisioned Concurrency only"],
+    correct: 1,
+    explanation: "A mixed Auto Scaling group combines stability of On-Demand and savings of Spot Instances for dynamic traffic patterns."
+},
+{
+    question: "Your manager wants alerts when monthly AWS spending exceeds a threshold. What’s the easiest solution?",
+    options: ["AWS Cost Explorer", "AWS Budgets with email notifications", "Trusted Advisor", "CloudWatch Metrics"],
+    correct: 1,
+    explanation: "AWS Budgets lets you set cost thresholds and receive alerts via email or SNS when exceeded."
+},
+{
+    question: "A development team frequently spins up test EC2 instances and forgets to terminate them. How can you automatically stop unused instances?",
+    options: ["Use AWS Trusted Advisor recommendations", "Use AWS Instance Scheduler or Lambda automation", "Use IAM policies to restrict EC2 usage", "Use EC2 Auto Scaling"],
+    correct: 1,
+    explanation: "Instance Scheduler or Lambda scripts can stop or terminate idle instances based on predefined schedules."
+},
+{
+    question: "Your web app needs to read and write session data rapidly with millisecond latency. What AWS service fits best?",
+    options: ["Amazon Aurora", "Amazon DynamoDB", "Amazon S3", "Amazon Redshift"],
+    correct: 1,
+    explanation: "DynamoDB is a low-latency, fully managed NoSQL database ideal for session management and high-speed reads/writes."
+},
+{
+    question: "A client wants to move their static marketing site from on-premises to AWS with minimal management. What’s the simplest setup?",
+    options: ["Launch EC2 with Apache server", "Host static files in S3 with static website hosting", "Use Elastic Beanstalk", "Create a container with ECS"],
+    correct: 1,
+    explanation: "S3 static website hosting eliminates the need for server maintenance and scales automatically."
+},
+{
+    question: "Your EC2 instances use private subnets. How can they access the internet for updates without exposing them publicly?",
+    options: ["Attach Elastic IPs to each instance", "Use a NAT Gateway in a public subnet", "Use VPC Peering", "Create a VPN connection"],
+    correct: 1,
+    explanation: "NAT Gateways allow instances in private subnets to initiate outbound internet connections securely."
+},
+{
+    question: "A company wants to analyze web traffic patterns in real time. Which service combination works best?",
+    options: ["CloudWatch + CloudFormation", "Kinesis Data Streams + Lambda", "S3 + Glacier", "Redshift + QuickSight"],
+    correct: 1,
+    explanation: "Kinesis Data Streams with Lambda enables real-time streaming data analysis and event-driven processing."
+},
+{
+    question: "A team’s EC2-based web app must remain available during maintenance. What’s the best approach?",
+    options: ["Use Elastic Load Balancer across multiple instances", "Use a single larger instance", "Schedule maintenance during off-hours", "Use CloudFront caching only"],
+    correct: 0,
+    explanation: "An Elastic Load Balancer distributes traffic across multiple instances, maintaining uptime even during maintenance."
+},
+{
+    question: "You want to store large media files that are rarely accessed but must be retrieved within minutes when needed. Which storage class fits best?",
+    options: ["S3 Standard", "S3 Glacier Flexible Retrieval", "S3 Glacier Deep Archive", "EBS General Purpose SSD"],
+    correct: 1,
+    explanation: "S3 Glacier Flexible Retrieval offers a balance between cost and retrieval time, ideal for infrequently accessed media."
+},
+{
+    question: "Your company needs to share sensitive data between AWS accounts securely. What’s the recommended approach?",
+    options: ["Make the S3 bucket public temporarily", "Use S3 bucket policies with cross-account access", "Copy data using CLI", "Use EC2 file transfer"],
+    correct: 1,
+    explanation: "Cross-account S3 bucket policies allow controlled, secure sharing between AWS accounts without public exposure."
+},
+{
+    question: "A developer accidentally deleted an S3 object. How can you ensure this won’t happen again?",
+    options: ["Enable MFA Delete and Versioning", "Use lifecycle rules", "Restrict delete permissions to IAM users", "Use Glacier storage class"],
+    correct: 0,
+    explanation: "Versioning keeps previous object versions, and MFA Delete adds extra security for delete actions."
+},
+{
+    question: "Your CloudWatch dashboard shows consistently high CPU on an EC2 instance. How should you fix this efficiently?",
+    options: ["Reboot the instance", "Resize to a larger instance type or add Auto Scaling", "Create a new AMI", "Reduce CloudWatch monitoring frequency"],
+    correct: 1,
+    explanation: "Scaling up or adding instances through Auto Scaling optimizes performance under heavy load."
+},
+{
+    question: "An organization wants to identify unused EBS volumes and reduce costs. Which service helps most?",
+    options: ["AWS Cost Explorer", "AWS Trusted Advisor", "CloudTrail", "Config Rules"],
+    correct: 1,
+    explanation: "Trusted Advisor identifies unused or underutilized EBS volumes, helping optimize costs."
+},
+{
+    question: "You must encrypt all new objects stored in an S3 bucket by default. How do you enforce this?",
+    options: ["Enable bucket versioning", "Enable default encryption on the bucket", "Use lifecycle policies", "Use CloudTrail logging"],
+    correct: 1,
+    explanation: "Default encryption ensures all new objects in the bucket are automatically encrypted."
+},
+{
+    question: "A company wants to ensure IAM users have only the permissions necessary for their jobs. What AWS principle supports this?",
+    options: ["Separation of Duties", "Principle of Least Privilege", "Zero Trust", "Identity Federation"],
+    correct: 1,
+    explanation: "The Principle of Least Privilege means granting only the permissions required for specific tasks."
+},
+{
+    question: "Your Lambda function needs to access an S3 bucket securely. What’s the best method?",
+    options: ["Store S3 credentials in Lambda environment variables", "Attach an IAM role to the Lambda function", "Use hardcoded keys", "Allow public bucket access"],
+    correct: 1,
+    explanation: "Attaching an IAM role grants the Lambda function temporary, secure credentials for S3 access."
+},
+{
+    question: "A team uses multiple AWS accounts for isolation. They want consolidated billing and volume discounts. What should they enable?",
+    options: ["AWS Organizations", "AWS Budgets", "Cost Explorer", "Billing Alarms"],
+    correct: 0,
+    explanation: "AWS Organizations centralizes billing across accounts and aggregates usage for discounts."
+},
+{
+    question: "You need to restrict API Gateway access to internal users only. What’s the best approach?",
+    options: ["Enable CORS", "Use VPC endpoints or private integration", "Deploy the API publicly", "Add CloudFront caching"],
+    correct: 1,
+    explanation: "Private API Gateway endpoints within a VPC restrict access to internal AWS resources."
+},
+{
+    question: "A company runs an app that stores sensitive user data. They must detect suspicious access patterns. What AWS tool helps most?",
+    options: ["CloudWatch Logs", "AWS GuardDuty", "AWS Budgets", "CloudFormation"],
+    correct: 1,
+    explanation: "GuardDuty continuously monitors for suspicious or malicious AWS account activity."
+},
+{
+    question: "Your EC2 instance is slow due to disk I/O. What’s the optimal improvement?",
+    options: ["Move to an EBS Provisioned IOPS SSD volume", "Use instance store volumes", "Add more RAM", "Enable CloudTrail logging"],
+    correct: 0,
+    explanation: "Provisioned IOPS SSD provides consistent, high-performance I/O for heavy workloads."
+},
+{
+    question: "You want to track configuration changes to resources over time for compliance. Which service do you use?",
+    options: ["AWS CloudTrail", "AWS Config", "CloudWatch", "Inspector"],
+    correct: 1,
+    explanation: "AWS Config continuously records configuration changes and provides compliance history."
+},
+{
+    question: "Your app experiences latency due to distance between users and your EC2 instances. What’s the easiest fix?",
+    options: ["Use CloudFront CDN", "Increase instance size", "Switch to private subnets", "Use Route 53 weighted routing only"],
+    correct: 0,
+    explanation: "CloudFront caches content closer to users, reducing latency and improving performance."
+},
+    {
+    question: "Your web application on EC2 experiences uneven traffic during the day. You want to reduce costs while ensuring the app scales automatically. Which solution is best?",
+    options: ["Use Elastic Load Balancing with EC2 Auto Scaling", "Increase EC2 instance size to handle peak traffic", "Manually start more instances during busy hours", "Move the app to a single larger EC2 instance"],
+    correct: 0,
+    explanation: "Elastic Load Balancing distributes traffic, and Auto Scaling adjusts instance count automatically based on demand, optimizing both performance and cost."
+},
+{
+    question: "A company’s marketing team needs to share large image files with partners globally. They require fast, secure, and scalable delivery. Which AWS service best fits?",
+    options: ["Amazon S3 with CloudFront", "Amazon EFS", "AWS Backup", "AWS Direct Connect"],
+    correct: 0,
+    explanation: "Amazon S3 provides durable storage while CloudFront caches content globally for fast and secure delivery."
+},
+{
+    question: "An application must retain log files for 7 years for compliance but access them rarely. Which storage class offers the lowest cost?",
+    options: ["Amazon S3 Standard", "Amazon S3 Glacier Deep Archive", "Amazon EBS", "Amazon S3 Intelligent-Tiering"],
+    correct: 1,
+    explanation: "S3 Glacier Deep Archive is the lowest-cost option for long-term data retention with infrequent access."
+},
+{
+    question: "A startup wants to deploy code without managing servers or infrastructure. Which AWS service should they use?",
+    options: ["Amazon EC2", "AWS Lambda", "Amazon ECS", "AWS Elastic Beanstalk"],
+    correct: 1,
+    explanation: "AWS Lambda allows serverless execution of code in response to events, removing the need for server management."
+},
+{
+    question: "Your analytics job runs daily and processes large data files stored in S3. It must scale automatically and complete within a fixed time window. Which service is ideal?",
+    options: ["Amazon EMR", "AWS Batch", "AWS Lambda", "Amazon Redshift"],
+    correct: 0,
+    explanation: "Amazon EMR handles large-scale data processing efficiently using managed Hadoop or Spark clusters that scale automatically."
+},
+{
+    question: "You manage sensitive customer data on AWS. Which service provides centralized key management and encryption?",
+    options: ["AWS Key Management Service (KMS)", "AWS Secrets Manager", "Amazon GuardDuty", "AWS CloudTrail"],
+    correct: 0,
+    explanation: "AWS KMS lets you create and manage encryption keys securely for your AWS resources."
+},
+{
+    question: "A web app hosted on EC2 needs to connect securely to an RDS database in the same VPC. What should you use?",
+    options: ["Public subnet access", "VPC security groups", "Internet Gateway", "NAT Gateway"],
+    correct: 1,
+    explanation: "Security groups act as virtual firewalls controlling inbound and outbound traffic between EC2 and RDS instances."
+},
+{
+    question: "Your company wants to analyze clickstream data in real-time. Which AWS service enables this?",
+    options: ["Amazon Kinesis Data Streams", "AWS Glue", "Amazon QuickSight", "Amazon EMR"],
+    correct: 0,
+    explanation: "Amazon Kinesis Data Streams ingests and processes real-time streaming data at scale."
+},
+{
+    question: "Your app stores user-uploaded files on S3. Users complain about slow downloads from distant countries. What’s the best fix?",
+    options: ["Use Amazon CloudFront to distribute S3 content", "Enable S3 Versioning", "Switch to S3 Glacier", "Use larger EC2 instances"],
+    correct: 0,
+    explanation: "CloudFront caches content at edge locations worldwide, improving download performance for distant users."
+},
+{
+    question: "A developer needs temporary credentials to access S3 from an EC2 instance securely. Which service provides this?",
+    options: ["IAM user access keys", "IAM roles", "AWS Organizations", "AWS Secrets Manager"],
+    correct: 1,
+    explanation: "IAM roles grant temporary security credentials to EC2 instances without embedding long-term keys."
+},
+{
+    question: "A financial company wants to prevent accidental deletion of critical S3 objects. What feature should they enable?",
+    options: ["S3 Versioning and MFA Delete", "S3 Transfer Acceleration", "S3 Lifecycle Rules", "S3 Access Logs"],
+    correct: 0,
+    explanation: "Versioning keeps previous copies of objects, and MFA Delete adds a security layer requiring authentication for deletions."
+},
+{
+    question: "Your IoT devices generate massive data every second. You need to store and query this data efficiently. Which AWS service fits best?",
+    options: ["Amazon Timestream", "Amazon Aurora", "Amazon DynamoDB", "Amazon RDS"],
+    correct: 0,
+    explanation: "Amazon Timestream is purpose-built for storing and analyzing time-series data from IoT devices."
+},
+{
+    question: "A team wants to build an application quickly without managing backend servers or databases. What AWS service helps them create APIs easily?",
+    options: ["AWS AppSync", "Amazon API Gateway", "AWS Fargate", "Amazon Lightsail"],
+    correct: 1,
+    explanation: "API Gateway allows developers to create, deploy, and manage APIs securely at any scale."
+},
+{
+    question: "A company wants to detect security threats and unusual API activity across its AWS environment. Which service should they enable?",
+    options: ["Amazon Inspector", "Amazon GuardDuty", "AWS WAF", "AWS CloudTrail"],
+    correct: 1,
+    explanation: "GuardDuty continuously monitors AWS accounts for malicious or unauthorized activity using machine learning."
+},
+{
+    question: "Your RDS database is running out of storage. How can you increase it without downtime?",
+    options: ["Take snapshot and restore to larger instance", "Modify the instance to allocate more storage", "Create a read replica", "Manually move data to S3"],
+    correct: 1,
+    explanation: "RDS allows dynamic modification of allocated storage without downtime."
+},
+{
+    question: "A company’s developers need isolated environments for testing new applications. What’s the best AWS solution?",
+    options: ["Separate VPCs for each environment", "Use same VPC but separate subnets", "Multiple IAM roles within same account", "Single EC2 with Docker containers"],
+    correct: 0,
+    explanation: "Creating separate VPCs provides complete network isolation for different environments."
+},
+{
+    question: "You need to migrate a petabyte-scale on-premises database to AWS with minimal downtime. Which service should you use?",
+    options: ["AWS Database Migration Service (DMS)", "AWS Snowball Edge", "AWS DataSync", "Amazon Kinesis"],
+    correct: 0,
+    explanation: "DMS enables live data replication to AWS databases with minimal downtime during migration."
+},
+{
+    question: "A user accidentally deleted a DynamoDB table. What can help prevent this in the future?",
+    options: ["Enable Point-in-Time Recovery (PITR)", "Turn on DynamoDB Streams", "Use CloudFormation for deployment", "Enable autoscaling"],
+    correct: 0,
+    explanation: "Point-in-Time Recovery allows restoration of tables to any time within the last 35 days."
+},
+{
+    question: "A startup wants to run containers without managing servers. Which AWS service is best?",
+    options: ["Amazon ECS with Fargate", "Amazon EC2 Auto Scaling", "AWS Lambda", "AWS Batch"],
+    correct: 0,
+    explanation: "ECS with Fargate runs containers serverlessly, eliminating the need to manage EC2 instances."
+},
+{
+    question: "A business must connect its on-premises data center to AWS securely over the public internet. What should they use?",
+    options: ["AWS Direct Connect", "VPN connection using AWS Site-to-Site VPN", "VPC Peering", "Transit Gateway"],
+    correct: 1,
+    explanation: "A Site-to-Site VPN establishes a secure encrypted connection between on-premises and AWS VPC over the internet."
+},
+{
+    question: "Your company’s billing increased sharply last month. Which tool identifies which services or accounts caused the cost spike?",
+    options: ["AWS Cost Explorer", "AWS Budgets", "AWS Trusted Advisor", "AWS CloudWatch"],
+    correct: 0,
+    explanation: "AWS Cost Explorer analyzes usage and costs across services, accounts, and time periods."
+},
+{
+    question: "A developer wants to trigger AWS Lambda when a new object is uploaded to an S3 bucket. How can this be achieved?",
+    options: ["Use S3 event notifications to trigger Lambda", "Create a CloudWatch alarm", "Manually invoke Lambda", "Use SNS subscription"],
+    correct: 0,
+    explanation: "S3 event notifications can automatically trigger Lambda functions upon object uploads."
+},
+{
+    question: "A retail app must read and write data with single-digit millisecond latency at any scale. Which AWS database fits best?",
+    options: ["Amazon RDS", "Amazon DynamoDB", "Amazon Aurora", "Amazon Redshift"],
+    correct: 1,
+    explanation: "DynamoDB offers consistent single-digit millisecond latency for high-performance workloads."
+},
+{
+    question: "A company’s website experiences DDoS attacks. Which AWS service provides protection?",
+    options: ["AWS Shield", "Amazon CloudWatch", "AWS Config", "AWS Inspector"],
+    correct: 0,
+    explanation: "AWS Shield offers managed DDoS protection for applications running on AWS."
+},
+{
+    question: "You must ensure compliance with data locality laws by storing data within a specific country. What AWS feature enables this?",
+    options: ["Selecting the correct AWS Region", "Creating multiple VPCs", "Using Availability Zones", "Using Global Accelerator"],
+    correct: 0,
+    explanation: "Data is stored and processed within the AWS Region you select, ensuring compliance with locality requirements."
+},
+{
+    question: "A data analytics team needs a petabyte-scale data warehouse solution. Which AWS service should they choose?",
+    options: ["Amazon Redshift", "Amazon Athena", "AWS Glue", "Amazon EMR"],
+    correct: 0,
+    explanation: "Amazon Redshift is a fully managed data warehouse designed for petabyte-scale analytics."
+},
+{
+    question: "A mobile app backend runs on AWS Lambda. You notice high latency due to cold starts. What can reduce this?",
+    options: ["Increase function memory", "Enable Provisioned Concurrency", "Use EC2 instead", "Add retries in code"],
+    correct: 1,
+    explanation: "Provisioned Concurrency keeps Lambda instances warm and ready to handle requests instantly, reducing latency."
+},
+{
+    question: "Your organization needs to enforce password policies and MFA for all AWS accounts. Which service should you use?",
+    options: ["AWS IAM", "AWS Organizations", "AWS Control Tower", "AWS Single Sign-On"],
+    correct: 1,
+    explanation: "AWS Organizations with Service Control Policies enforces IAM and MFA rules across all accounts centrally."
+},
+{
+    question: "A company wants to monitor application metrics and trigger alerts when CPU usage exceeds 80%. Which AWS service enables this?",
+    options: ["Amazon CloudWatch", "AWS Config", "AWS Trusted Advisor", "AWS CloudTrail"],
+    correct: 0,
+    explanation: "CloudWatch monitors metrics and allows you to create alarms for specific thresholds like CPU utilization."
+},
+{
+    question: "You want to automate infrastructure deployment using templates. Which AWS service provides this capability?",
+    options: ["AWS CloudFormation", "AWS Config", "AWS CodeBuild", "AWS CodePipeline"],
+    correct: 0,
+    explanation: "CloudFormation automates infrastructure deployment using declarative templates."
+},
+    {
+    question: "Your company’s web app experiences unpredictable spikes in traffic every few weeks. The app currently runs on four On-Demand EC2 instances behind an Application Load Balancer. How can you reduce costs without affecting availability?",
+    options: ["Replace the load balancer with Route 53 latency routing", "Move to EC2 Spot Instances only", "Use Auto Scaling with a mix of On-Demand and Spot Instances", "Schedule EC2 instance shutdowns during off-peak hours"],
+    correct: 2,
+    explanation: "Auto Scaling adjusts instance count dynamically. A mix of On-Demand and Spot Instances balances cost savings with reliability."
+},
+{
+    question: "An analytics team stores processed data on EBS volumes attached to EC2 instances. They occasionally lose data when instances fail. What’s the most durable and cost-effective storage option?",
+    options: ["Store results in S3 Standard", "Create EBS snapshots regularly", "Use S3 Glacier Deep Archive", "Replicate EBS volumes across Availability Zones"],
+    correct: 0,
+    explanation: "Amazon S3 offers 99.999999999% durability and is cheaper than EBS for data persistence. Snapshots add resilience but require manual restore."
+},
+{
+    question: "A developer accidentally exposed AWS access keys in a GitHub repository. What’s the immediate and correct sequence of actions?",
+    options: ["Delete the repository, create new keys, monitor usage", "Deactivate exposed keys, rotate them, check CloudTrail logs", "Update IAM policy, enable MFA, notify AWS Support", "Remove IAM user, create new user, reassign permissions"],
+    correct: 1,
+    explanation: "First, stop unauthorized use by deactivating keys, then rotate and audit activity using CloudTrail."
+},
+{
+    question: "Your video platform streams content to global users from an EC2 instance in us-east-1. Data transfer costs are rising sharply. How can you reduce costs and improve global performance?",
+    options: ["Add an Elastic Load Balancer", "Use Amazon CloudFront with the EC2 instance as the origin", "Create VPC endpoints in other regions", "Use AWS Direct Connect"],
+    correct: 1,
+    explanation: "CloudFront caches content at edge locations, reducing latency and outbound data transfer costs."
+},
+{
+    question: "Your database runs on a single EC2 instance with EBS storage. Management wants high availability with minimal downtime in case of an AZ failure. What’s the best solution?",
+    options: ["Set up a second EC2 instance in another AZ and use RDS Multi-AZ", "Copy EBS snapshots to another AZ daily", "Use Elastic File System (EFS)", "Run the database on an EC2 Spot instance in another region"],
+    correct: 0,
+    explanation: "RDS Multi-AZ provides automated failover and synchronization across Availability Zones — far more resilient than manual snapshot backups."
+},
             {
                 question: "Which service provides quantum computing?",
                 options: ["Amazon Braket", "Amazon SageMaker", "Amazon EMR", "AWS Batch"],
