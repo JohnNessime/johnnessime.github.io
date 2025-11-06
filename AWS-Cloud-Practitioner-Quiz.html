@@ -3874,12 +3874,18 @@ options: ["AWS CloudTrail", "AWS Security Hub", "AWS Shield", "Amazon GuardDuty"
 correct: [1],
 explanation: "AWS Security Hub provides a unified view of security alerts and compliance findings across AWS accounts and services."
 },
-            {
-                question: "XXXXX",
-                options: ["XXXXX"],
-                correct: 0,
-                explanation: "XXXXX"
-            }
+          {
+    question: "A healthcare company needs to store sensitive patient records securely and comply with HIPAA. Which AWS feature is critical?",
+    options: ["AWS Shield Advanced", "Encryption with AWS KMS and IAM access control", "S3 Transfer Acceleration", "AWS CodeDeploy"],
+    correct: 1,
+    explanation: "Encryption and IAM-based access control, managed via AWS KMS, ensure compliance with HIPAA and data security best practices."
+},
+{
+    question: "You need to migrate hundreds of terabytes from on-premises to S3 and synchronize updates continuously. What’s the most efficient approach?",
+    options: ["AWS DataSync", "AWS Snowball", "S3 Transfer Acceleration", "AWS Storage Gateway Tape"],
+    correct: 0,
+    explanation: "AWS DataSync automates and accelerates online data transfers with incremental updates between on-premises and AWS."
+}
 
 ];
 
