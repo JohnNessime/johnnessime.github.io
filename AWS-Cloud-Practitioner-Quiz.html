@@ -20,6 +20,10 @@ h1{text-align:center;color:#ff9900;margin-bottom:15px;font-size:2.0rem;text-shad
 .timer-green { color: #2ecc71; border: 1px solid #2ecc71; font-weight: bold; }
 .timer-red { color: #e74c3c; border: 1px solid #e74c3c; font-weight: bold; animation: pulse 1s infinite; }
 
+/* Color Status Classes */
+.status-green { color: #2ecc71; border: 1px solid #2ecc71; font-weight: bold; }
+.status-red { color: #e74c3c; border: 1px solid #e74c3c; font-weight: bold; }
+
 @keyframes pulse {
     0% { opacity: 1; }
     50% { opacity: 0.7; }
@@ -57,7 +61,7 @@ h1{text-align:center;color:#ff9900;margin-bottom:15px;font-size:2.0rem;text-shad
         <div class="counter-item"><strong>Answered:</strong> <span id="answeredCount">0</span> / <span id="totalQuestions">0</span></div>
         <div class="counter-item"><strong>Correct:</strong> <span id="correctCountLive">0</span></div>
         <div class="counter-item"><strong>Wrong:</strong> <span id="wrongCountLive">0</span></div>
-        <div class="counter-item"><strong>Accuracy:</strong> <span id="accuracyPercent">0%</span></div>
+        <div class="counter-item" id="accuracyBox"><strong>Accuracy:</strong> <span id="accuracyPercent">0%</span></div>
         <div class="counter-item timer-green" id="timerBox"><strong>Time:</strong> <span id="timerCount">90</span>s</div>
     </div>
 
@@ -9982,17 +9986,7 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
     "correct": 0,
     "explanation": "Derived from AWS exam content."
   },
-  {
-    "question": "445. Which of the following is an AWS best practice for managing an AWS account root user?",
-    "options": [
-      "keep the root user password with the security team.",
-      "enable multiffactor authentication for the root user.",
-      "create an access key for the root user. And option D, keep the root user password consistent for compliance purposes."
-    ],
-    "correct": 1,
-    "explanation": "Derived from AWS exam content."
-  },
-  {
+    {
     "question": "448. A company wants to improve its security and audit posture by limiting Amazon EC2 inbound access. What should the company use to access instances remotely instead of opening inbound SSH ports and managing SSH keys?",
     "options": [
       "EC2 key pairs.",
@@ -11362,6 +11356,24 @@ function updateCounters() {
 
     const wrong = answered - correctCount;
     const accuracy = answered > 0 ? Math.round((correctCount / answered) * 100) : 0;
+// Update the text values
+    document.getElementById('accuracyPercent').textContent = accuracy + '%';
+
+    // NEW COLOR LOGIC FOR ACCURACY
+    const accBox = document.getElementById('accuracyBox');
+    if (answered > 0) {
+        if (accuracy >= 70) {
+            accBox.classList.remove("status-red");
+            accBox.classList.add("status-green");
+        } else {
+            accBox.classList.remove("status-green");
+            accBox.classList.add("status-red");
+        }
+    } else {
+        // Reset to neutral if no questions answered yet
+        accBox.classList.remove("status-green", "status-red");
+    }
+
 
     document.getElementById('totalQuestions').textContent = questions.length;
     document.getElementById('answeredCount').textContent = answered;
