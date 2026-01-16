@@ -6448,7 +6448,184 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
     "correct": 2,
     "explanation": "Amazon DynamoDB is a fully managed NoSQL database that provides automatic scaling and fast performance."
   },
+  {
+    "question": "Which task is the customer’s responsibility when using Amazon DynamoDB?",
+    "options": [
+      "Patching the operating system",
+      "Provisioning the host",
+      "Managing database access permissions",
+      "Securing the underlying operating system"
+    ],
+    "correct": 2,
+    "explanation": "Under the shared responsibility model, customers manage access controls for their DynamoDB tables."
+  },
+  {
+    "question": "Which Amazon EC2 purchasing option is most cost-effective for interruptible test workloads?",
+    "options": [
+      "On-Demand Instances",
+      "Dedicated Instances",
+      "Spot Instances",
+      "Reserved Instances"
+    ],
+    "correct": 2,
+    "explanation": "Spot Instances offer unused EC2 capacity at steep discounts and are ideal for interruptible workloads."
+  },
 {
+  "question": "Every few years, a company modernizes on-premises infrastructure. What is the primary advantage of moving to AWS?",
+  "options": [
+    "AWS helps move existing hardware to AWS data centers",
+    "Increased agility with on-demand access to IT resources",
+    "Enterprise support for recurring application installation",
+    "Less downtime with multi-AZ deployment"
+  ],
+  "correct": 1,
+  "explanation": "Moving to AWS provides agility, allowing rapid provisioning and scaling of IT resources without long hardware procurement cycles."
+},
+{
+  "question": "Which AWS service helps protect against DDoS attacks?",
+  "options": [
+    "AWS Shield",
+    "Amazon Inspector",
+    "Amazon GuardDuty",
+    "Amazon Detective"
+  ],
+  "correct": 0,
+  "explanation": "AWS Shield is a managed service that provides protection against distributed denial-of-service (DDoS) attacks automatically."
+},
+{
+  "question": "A business needs to guarantee that users of the AWS management console adhere to password complexity guidelines. How can a business customize the difficulty of its passwords?",
+  "options": [
+    "Using an IAM user policy",
+    "Using an AWS Organizations service control policy",
+    "Using an IAM account password policy",
+    "Using AWS Security Hub"
+  ],
+  "correct": 2,
+  "explanation": "IAM account password policies allow businesses to define complexity requirements and mandatory rotation periods for their users’ passwords. Without a custom policy, IAM passwords must meet the default AWS password policy."
+},
+{
+  "question": "Which AWS service would determine if a security group has granted unlimited access to a resource?",
+  "options": [
+    "AWS Trusted Advisor",
+    "Amazon CloudWatch",
+    "VPC Flow Logs",
+    "AWS CloudTrail"
+  ],
+  "correct": 0,
+  "explanation": "AWS Trusted Advisor evaluates security configurations of AWS resources. For example, it checks if security groups have rules allowing unrestricted access to specific ports like SSH or RDP, which could increase vulnerability to attacks."
+},
+{
+  "question": "Which features are available to users while using AWS KMS?",
+  "options": [
+    "Create/manage AWS access keys for the root user",
+    "Create/manage AWS access keys for IAM users",
+    "Create/manage keys for encryption and decryption of data",
+    "Create/manage keys for multi-factor authentication"
+  ],
+  "correct": 2,
+  "explanation": "AWS Key Management Service (KMS) is an encryption and key management service designed for the cloud. AWS KMS keys can be used to protect data in AWS services and your own applications."
+},
+{
+  "question": "On Amazon EC2 instances, a business needs to apply monthly database security updates. Which method is most effective for applying these patches?",
+  "options": [
+    "Manually download and apply patches on each database",
+    "Enable automatic patching via the RDS console",
+    "Use AWS Config to configure patch rules",
+    "Use AWS Systems Manager to automate database patching"
+  ],
+  "correct": 3,
+  "explanation": "AWS Systems Manager Patch Manager automates patching for managed nodes with both OS and application updates. It can patch fleets of EC2 instances, on-premises servers, and virtual machines according to schedules."
+},
+{
+  "question": "A business is releasing a new application on AWS using EC2 instances. Additional EC2 instances will be required as demand grows. Which AWS service can deploy the required instances?",
+  "options": [
+    "Elastic Load Balancing",
+    "Amazon EC2 Auto Scaling",
+    "AWS App Mesh",
+    "AWS Systems Manager"
+  ],
+  "correct": 1,
+  "explanation": "Amazon EC2 Auto Scaling ensures the correct number of EC2 instances are available to handle application load. You create Auto Scaling groups with defined minimum and maximum instance counts, and Auto Scaling maintains these limits automatically."
+},
+
+{
+question: "Which AWS service helps you create data lakes quickly and securely?",
+options: ["AWS Glue", "Amazon S3", "AWS Lake Formation", "Amazon Redshift"],
+correct: [2],
+explanation: "AWS Lake Formation simplifies building, securing, and managing data lakes on top of S3."
+},
+{
+question: "Which AWS service lets you create and manage isolated virtual networks within the AWS Cloud?",
+options: ["Amazon Route 53", "Amazon CloudFront", "Amazon VPC", "AWS Direct Connect"],
+correct: [2],
+explanation: "Amazon VPC (Virtual Private Cloud) allows you to define and control a virtual network environment including IP ranges, subnets, and routing."
+},
+{
+question: "A company wants to automatically provision infrastructure based on templates to ensure consistency across environments. Which AWS service should they use?",
+options: ["AWS CloudFormation", "AWS Config", "AWS CloudTrail", "AWS CodePipeline"],
+correct: [0],
+explanation: "AWS CloudFormation enables automated resource provisioning using templates, ensuring consistent and repeatable infrastructure deployments."
+},
+{
+question: "Which AWS service enables developers to deploy and manage applications without provisioning or managing servers?",
+options: ["AWS Elastic Beanstalk", "Amazon EC2", "AWS Lambda", "Amazon ECS"],
+correct: [0],
+explanation: "AWS Elastic Beanstalk manages application deployment, scaling, and monitoring automatically without requiring manual server configuration."
+},
+{
+question: "Which AWS service helps protect applications against DDoS attacks?",
+options: ["AWS Shield", "AWS WAF", "Amazon GuardDuty", "AWS Firewall Manager"],
+correct: [0],
+explanation: "AWS Shield provides automatic protection against Distributed Denial of Service (DDoS) attacks with advanced features in Shield Advanced."
+},
+{
+question: "Which AWS service can detect unauthorized or malicious activity by analyzing AWS account logs and network traffic?",
+options: ["AWS Config", "AWS CloudTrail", "Amazon GuardDuty", "AWS Security Hub"],
+correct: [2],
+explanation: "Amazon GuardDuty uses machine learning and threat intelligence to detect suspicious or malicious activity in your AWS environment."
+},
+{
+question: "Which AWS service allows developers to store, manage, and version application source code in the cloud?",
+options: ["AWS CodeCommit", "AWS CodeBuild", "AWS CodeDeploy", "AWS CodePipeline"],
+correct: [0],
+explanation: "AWS CodeCommit is a fully managed source control service that hosts private Git repositories securely at scale."
+},
+{
+question: "A company needs to send, store, and process messages between distributed software components reliably. Which AWS service should they use?",
+options: ["Amazon SNS", "Amazon SQS", "AWS Step Functions", "Amazon MQ"],
+correct: [1],
+explanation: "Amazon SQS (Simple Queue Service) is a fully managed message queuing service for decoupling and scaling distributed systems."
+},
+{
+question: "Which AWS service allows you to run containerized applications without managing servers or clusters?",
+options: ["Amazon ECS on EC2", "AWS Fargate", "Amazon EKS", "AWS Lambda"],
+correct: [1],
+explanation: "AWS Fargate is a serverless compute engine for containers, removing the need to manage EC2 instances or Kubernetes nodes."
+},
+{
+question: "Which AWS service allows you to track user activity and API usage across your AWS account?",
+options: ["AWS CloudTrail", "AWS Config", "AWS CloudWatch", "AWS Trusted Advisor"],
+correct: [0],
+explanation: "AWS CloudTrail records all account activity and API calls, providing visibility into user actions and resource changes."
+},
+{
+question: "Which AWS service enables centralized management and auditing of security and compliance across multiple AWS accounts?",
+options: ["AWS CloudTrail", "AWS Security Hub", "AWS Shield", "Amazon GuardDuty"],
+correct: [1],
+explanation: "AWS Security Hub provides a unified view of security alerts and compliance findings across AWS accounts and services."
+},
+          {
+    question: "A healthcare company needs to store sensitive patient records securely and comply with HIPAA. Which AWS feature is critical?",
+    options: ["AWS Shield Advanced", "Encryption with AWS KMS and IAM access control", "S3 Transfer Acceleration", "AWS CodeDeploy"],
+    correct: 1,
+    explanation: "Encryption and IAM-based access control, managed via AWS KMS, ensure compliance with HIPAA and data security best practices."
+},
+{
+    question: "You need to migrate hundreds of terabytes from on-premises to S3 and synchronize updates continuously. What’s the most efficient approach?",
+    options: ["AWS DataSync", "AWS Snowball", "S3 Transfer Acceleration", "AWS Storage Gateway Tape"],
+    correct: 0,
+    explanation: "AWS DataSync automates and accelerates online data transfers with incremental updates between on-premises and AWS."
+},{
     "question": "one. A company plans to use an Amazon Snowball Edge device to transfer files to the AWS cloud. Which activities related to a Snowball Edge device are available to the company at no cost?",
     "options": [
       "use of the Snowball Edge appliance for a 10-day period.",
@@ -6489,7 +6666,7 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
     "explanation": "Derived from AWS exam content."
   },
   {
-    "question": "eight. A company wants to run a NoSQL database on Amazon EC2 instances. Which task is the responsibility of AWS in this scenario?",
+    "question": "A company wants to run a NoSQL database on Amazon EC2 instances. Which task is the responsibility of AWS in this scenario?",
     "options": [
       "update the guest operating system of the EC2 instances.",
       "maintain high availability at the database layer.",
@@ -6497,7 +6674,7 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
       "configure the security group firewall."
     ],
     "correct": 2,
-    "explanation": "Derived from AWS exam content."
+    "explanation": "patch the physical infrastructure that hosts the EC2 instances."
   },
   {
     "question": "10. Which of the following are benefits of using AWS trusted advisor?",
@@ -6776,15 +6953,27 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
     "explanation": "Derived from AWS exam content."
   },
   {
-    "question": "93. How does AWS cloud computing help businesses reduce cost?",
+    "question": "How does AWS cloud computing help businesses reduce cost?  Choose Two.",
     "options": [
+      "AWS charges the same prices for services in every AWS region.",
       "AWS enables capacity to adjust on demand.",
       "AWS offers discounts for Amazon EC2 instances that remain ideal for more than one week.",
       "AWS does not charge for data sent from the AWS cloud to the internet.",
       "AWS eliminates many of the cost of building and maintaining on premises data centers."
     ],
+    "correct": [1, 4],
+    "explanation": "AWS enables capacity to adjust on demand. // AWS eliminates many of the cost of building and maintaining on premises data centers. // Stop spending money running and maintaining data centers benefit from massive economies of scale. "
+  },
+{
+    "question": "The company wants to grant users in one AWS account access to resources in another AWS account. The users do not currently have permission to access the resources. Which AWS service will meet these requirements?",
+    "options": [
+      "IM group",
+      "IM role",
+      "IM tag",
+      "IM access analyzer"
+    ],
     "correct": 1,
-    "explanation": "Derived from AWS exam content."
+    "explanation": "IM role"
   },
   {
     "question": "95. Which task is the responsibility of AWS when using AWS services?",
@@ -7473,13 +7662,15 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
     "explanation": "Derived from AWS exam content."
   },
   {
-    "question": "167. When comparing AWS total cost of ownership to on premises TCO, what charges are included?",
+    "question": "When comparing AWS total cost of ownership to on premises TCO, what charges are included?",
     "options": [
-      "project management, option B, antivirus software licensing.",
-      "data center security, and option D software development."
+      "Project Management.",
+      "Antivirus Software Licensing.",
+      "Data Center Security.",
+      "Software Development."
     ],
     "correct": 2,
-    "explanation": "Derived from AWS exam content."
+    "explanation": "Data Center Security. So consider the following elements affecting cost, data center facilities, hardware and infrastructure, software, personal disaster recovery and security."
   },
   {
     "question": "168. Which AWS service or feature checks access policies and offers actionable recommendations to help users set secure and functional policies?",
@@ -8488,7 +8679,7 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
     "explanation": "Derived from AWS exam content."
   },
   {
-    "question": "276. Which of the following IT functions does AWS do in order to relieve a business of its responsibilities for managing its IT resources?",
+    "question": "276. Which of the following IT functions does AWS do in order to relieve a business of its responsibilities for managing its IT resources? Select two.",
     "options": [
       "configuring operating system firewalls.",
       "setting up access controls for data.",
@@ -8496,8 +8687,8 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
       "configuring database user accounts.",
       "installing operating systems."
     ],
-    "correct": 2,
-    "explanation": "Derived from AWS exam content."
+    correct: [2, 4],
+    "explanation": "backing up databases, and installing operating systems. AWS maintains the configuration of its infrastructure devices, but a customer is responsible for configuring their own guest operating systems, databases, and applications."
   },
   {
     "question": "277, which AWS technologies aid in cost estimation?",
@@ -9653,14 +9844,15 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
     "explanation": "Derived from AWS exam content."
   },
   {
-    "question": "405. Which service manages objects by storing them, providing realtime access to them and managing their versions and life cycles?",
+    "question": "Which service manages objects by storing them, providing realtime access to them and managing their versions and life cycles?",
     "options": [
       "Amazon Glacier.",
       "AWS storage gateway.",
-      "Amazon S3. And option D, Amazon EBS."
+      "Amazon S3.",
+      "Amazon EBS."
     ],
     "correct": 2,
-    "explanation": "Derived from AWS exam content."
+    "explanation": "Amazon S3."
   },
   {
     "question": "406, which Amazon Web Services service may be used to securely store and manage source code versions?",
@@ -10332,15 +10524,15 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
     "explanation": "Derived from AWS exam content."
   },
   {
-    "question": "492. What is an AWS cloud best practice in terms of design?",
+    "question": "What is an AWS cloud best practice in terms of design?",
     "options": [
-      "tight coupling of components.",
-      "single point of failure.",
-      "high availability.",
-      "overprovisioning of resources."
+      "Tight Coupling Of Components.",
+      "Single Point Of Failure.",
+      "High Availability.",
+      "Over-Provisioning Of Resources."
     ],
     "correct": 2,
-    "explanation": "Derived from AWS exam content."
+    "explanation": "High Availability."
   },
   {
     "question": "495. A company has multiple applications and is now building a new multidar application. The company will host the new application on Amazon EC2 instances. The company wants the network routting and traffic between the various applications to follow the security principle of least privilege. Which AWS service or feature should the company use to enforce this principle?",
@@ -10982,185 +11174,7 @@ explanation: "AWS Shield offers always-on DDoS protection for AWS applications a
     ],
     "correct": 3,
     "explanation": "Derived from AWS exam content."
-  },
-  {
-    "question": "Which task is the customer’s responsibility when using Amazon DynamoDB?",
-    "options": [
-      "Patching the operating system",
-      "Provisioning the host",
-      "Managing database access permissions",
-      "Securing the underlying operating system"
-    ],
-    "correct": 2,
-    "explanation": "Under the shared responsibility model, customers manage access controls for their DynamoDB tables."
-  },
-  {
-    "question": "Which Amazon EC2 purchasing option is most cost-effective for interruptible test workloads?",
-    "options": [
-      "On-Demand Instances",
-      "Dedicated Instances",
-      "Spot Instances",
-      "Reserved Instances"
-    ],
-    "correct": 2,
-    "explanation": "Spot Instances offer unused EC2 capacity at steep discounts and are ideal for interruptible workloads."
-  },
-{
-  "question": "Every few years, a company modernizes on-premises infrastructure. What is the primary advantage of moving to AWS?",
-  "options": [
-    "AWS helps move existing hardware to AWS data centers",
-    "Increased agility with on-demand access to IT resources",
-    "Enterprise support for recurring application installation",
-    "Less downtime with multi-AZ deployment"
-  ],
-  "correct": 1,
-  "explanation": "Moving to AWS provides agility, allowing rapid provisioning and scaling of IT resources without long hardware procurement cycles."
-},
-{
-  "question": "Which AWS service helps protect against DDoS attacks?",
-  "options": [
-    "AWS Shield",
-    "Amazon Inspector",
-    "Amazon GuardDuty",
-    "Amazon Detective"
-  ],
-  "correct": 0,
-  "explanation": "AWS Shield is a managed service that provides protection against distributed denial-of-service (DDoS) attacks automatically."
-},
-{
-  "question": "A business needs to guarantee that users of the AWS management console adhere to password complexity guidelines. How can a business customize the difficulty of its passwords?",
-  "options": [
-    "Using an IAM user policy",
-    "Using an AWS Organizations service control policy",
-    "Using an IAM account password policy",
-    "Using AWS Security Hub"
-  ],
-  "correct": 2,
-  "explanation": "IAM account password policies allow businesses to define complexity requirements and mandatory rotation periods for their users’ passwords. Without a custom policy, IAM passwords must meet the default AWS password policy."
-},
-{
-  "question": "Which AWS service would determine if a security group has granted unlimited access to a resource?",
-  "options": [
-    "AWS Trusted Advisor",
-    "Amazon CloudWatch",
-    "VPC Flow Logs",
-    "AWS CloudTrail"
-  ],
-  "correct": 0,
-  "explanation": "AWS Trusted Advisor evaluates security configurations of AWS resources. For example, it checks if security groups have rules allowing unrestricted access to specific ports like SSH or RDP, which could increase vulnerability to attacks."
-},
-{
-  "question": "Which features are available to users while using AWS KMS?",
-  "options": [
-    "Create/manage AWS access keys for the root user",
-    "Create/manage AWS access keys for IAM users",
-    "Create/manage keys for encryption and decryption of data",
-    "Create/manage keys for multi-factor authentication"
-  ],
-  "correct": 2,
-  "explanation": "AWS Key Management Service (KMS) is an encryption and key management service designed for the cloud. AWS KMS keys can be used to protect data in AWS services and your own applications."
-},
-{
-  "question": "On Amazon EC2 instances, a business needs to apply monthly database security updates. Which method is most effective for applying these patches?",
-  "options": [
-    "Manually download and apply patches on each database",
-    "Enable automatic patching via the RDS console",
-    "Use AWS Config to configure patch rules",
-    "Use AWS Systems Manager to automate database patching"
-  ],
-  "correct": 3,
-  "explanation": "AWS Systems Manager Patch Manager automates patching for managed nodes with both OS and application updates. It can patch fleets of EC2 instances, on-premises servers, and virtual machines according to schedules."
-},
-{
-  "question": "A business is releasing a new application on AWS using EC2 instances. Additional EC2 instances will be required as demand grows. Which AWS service can deploy the required instances?",
-  "options": [
-    "Elastic Load Balancing",
-    "Amazon EC2 Auto Scaling",
-    "AWS App Mesh",
-    "AWS Systems Manager"
-  ],
-  "correct": 1,
-  "explanation": "Amazon EC2 Auto Scaling ensures the correct number of EC2 instances are available to handle application load. You create Auto Scaling groups with defined minimum and maximum instance counts, and Auto Scaling maintains these limits automatically."
-},
-
-{
-question: "Which AWS service helps you create data lakes quickly and securely?",
-options: ["AWS Glue", "Amazon S3", "AWS Lake Formation", "Amazon Redshift"],
-correct: [2],
-explanation: "AWS Lake Formation simplifies building, securing, and managing data lakes on top of S3."
-},
-{
-question: "Which AWS service lets you create and manage isolated virtual networks within the AWS Cloud?",
-options: ["Amazon Route 53", "Amazon CloudFront", "Amazon VPC", "AWS Direct Connect"],
-correct: [2],
-explanation: "Amazon VPC (Virtual Private Cloud) allows you to define and control a virtual network environment including IP ranges, subnets, and routing."
-},
-{
-question: "A company wants to automatically provision infrastructure based on templates to ensure consistency across environments. Which AWS service should they use?",
-options: ["AWS CloudFormation", "AWS Config", "AWS CloudTrail", "AWS CodePipeline"],
-correct: [0],
-explanation: "AWS CloudFormation enables automated resource provisioning using templates, ensuring consistent and repeatable infrastructure deployments."
-},
-{
-question: "Which AWS service enables developers to deploy and manage applications without provisioning or managing servers?",
-options: ["AWS Elastic Beanstalk", "Amazon EC2", "AWS Lambda", "Amazon ECS"],
-correct: [0],
-explanation: "AWS Elastic Beanstalk manages application deployment, scaling, and monitoring automatically without requiring manual server configuration."
-},
-{
-question: "Which AWS service helps protect applications against DDoS attacks?",
-options: ["AWS Shield", "AWS WAF", "Amazon GuardDuty", "AWS Firewall Manager"],
-correct: [0],
-explanation: "AWS Shield provides automatic protection against Distributed Denial of Service (DDoS) attacks with advanced features in Shield Advanced."
-},
-{
-question: "Which AWS service can detect unauthorized or malicious activity by analyzing AWS account logs and network traffic?",
-options: ["AWS Config", "AWS CloudTrail", "Amazon GuardDuty", "AWS Security Hub"],
-correct: [2],
-explanation: "Amazon GuardDuty uses machine learning and threat intelligence to detect suspicious or malicious activity in your AWS environment."
-},
-{
-question: "Which AWS service allows developers to store, manage, and version application source code in the cloud?",
-options: ["AWS CodeCommit", "AWS CodeBuild", "AWS CodeDeploy", "AWS CodePipeline"],
-correct: [0],
-explanation: "AWS CodeCommit is a fully managed source control service that hosts private Git repositories securely at scale."
-},
-{
-question: "A company needs to send, store, and process messages between distributed software components reliably. Which AWS service should they use?",
-options: ["Amazon SNS", "Amazon SQS", "AWS Step Functions", "Amazon MQ"],
-correct: [1],
-explanation: "Amazon SQS (Simple Queue Service) is a fully managed message queuing service for decoupling and scaling distributed systems."
-},
-{
-question: "Which AWS service allows you to run containerized applications without managing servers or clusters?",
-options: ["Amazon ECS on EC2", "AWS Fargate", "Amazon EKS", "AWS Lambda"],
-correct: [1],
-explanation: "AWS Fargate is a serverless compute engine for containers, removing the need to manage EC2 instances or Kubernetes nodes."
-},
-{
-question: "Which AWS service allows you to track user activity and API usage across your AWS account?",
-options: ["AWS CloudTrail", "AWS Config", "AWS CloudWatch", "AWS Trusted Advisor"],
-correct: [0],
-explanation: "AWS CloudTrail records all account activity and API calls, providing visibility into user actions and resource changes."
-},
-{
-question: "Which AWS service enables centralized management and auditing of security and compliance across multiple AWS accounts?",
-options: ["AWS CloudTrail", "AWS Security Hub", "AWS Shield", "Amazon GuardDuty"],
-correct: [1],
-explanation: "AWS Security Hub provides a unified view of security alerts and compliance findings across AWS accounts and services."
-},
-          {
-    question: "A healthcare company needs to store sensitive patient records securely and comply with HIPAA. Which AWS feature is critical?",
-    options: ["AWS Shield Advanced", "Encryption with AWS KMS and IAM access control", "S3 Transfer Acceleration", "AWS CodeDeploy"],
-    correct: 1,
-    explanation: "Encryption and IAM-based access control, managed via AWS KMS, ensure compliance with HIPAA and data security best practices."
-},
-{
-    question: "You need to migrate hundreds of terabytes from on-premises to S3 and synchronize updates continuously. What’s the most efficient approach?",
-    options: ["AWS DataSync", "AWS Snowball", "S3 Transfer Acceleration", "AWS Storage Gateway Tape"],
-    correct: 0,
-    explanation: "AWS DataSync automates and accelerates online data transfers with incremental updates between on-premises and AWS."
-}
+  }
 
 ];
 
@@ -11169,7 +11183,7 @@ let currentQuestion = 0;
 let answers = new Array(questions.length).fill(null);
 let startTime = Date.now();
 let timerInterval = null;
-const TIME_PER_QUESTION = 90;
+const TIME_PER_QUESTION = 80;
 
 /* --------------------------- SHUFFLE QUESTIONS --------------------------- */
 function shuffleQuestionsArray() {
